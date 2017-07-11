@@ -1,0 +1,41 @@
+# selenium
+
+package com.iitjobs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+public class IndeedSearch {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		//open firefox browser
+		//System.setProperty("webdriver.gecko.driver", "G:/scala/selinium/webdriver/geckodriver.exe");
+		//System.setProperty("webdriver.chrome.driver", "H:/selenium/chromedriver.exe");
+		//WebDriver d=new FirefoxDriver();
+		//WebDriver d=new ChromeDriver();
+		System.setProperty("webdriver.ie.driver", "H:/selenium/IEDriverServer.exe");
+		WebDriver d=new InternetExplorerDriver();
+		
+		//open home page for indeed
+		d.get("http://www.indeed.com");
+		Thread.sleep(2000);
+		d.findElement(By.id("what")).sendKeys("Hadoop Developer");
+		Thread.sleep(2000);
+		d.findElement(By.id("where")).sendKeys("");
+		Thread.sleep(2000);
+		//find what field 
+		d.findElement(By.id("fj")).click();
+		
+		System.out.println(d.getTitle());
+		System.out.println(d.findElement(By.id("searchCount")).getText());
+		//location
+		//find jobs buttion
+		//get title and count
+
+	}
+
+}
