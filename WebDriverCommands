@@ -1,0 +1,26 @@
+package com.iitjobs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class WebDriverCommands {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		//d.get("http://www.store.demoqa.com");
+		//System.out.println(d.getTitle());
+		//System.out.println(d.getTitle().length());
+		//d.getCurrentUrl();
+		//d.getPageSource();
+		//System.out.println(d.getPageSource().length());
+		d.get("http://demoqa.com/frames-and-windows/");
+		Thread.sleep(3000);
+		d.findElement(By.xpath(".//*[@id='ui-id-2']")).click();
+		///html/body/div[1]/div/div[1]/main/article/div/div/ul/li[1]/a
+		
+		d.close();
+		
+
+	}
