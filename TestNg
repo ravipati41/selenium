@@ -1,0 +1,47 @@
+package com.com.iitjobs;
+
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterMethod;
+
+public class TestNG {
+	public WebDriver d;
+  @Test
+  public void main() throws InterruptedException {
+	  d.findElement(By.name("firstname")).sendKeys("satish");
+		Thread.sleep(3000);
+		d.findElement(By.name("lastname")).sendKeys("ravipati");
+		Thread.sleep(3000);
+		d.findElement(By.id("submit")).click();
+		Thread.sleep(3000);
+		d.findElement(By.partialLinkText("Partial")).click();;
+		Thread.sleep(3000);
+		String tname=d.findElement(By.tagName("button")).toString();
+		Thread.sleep(3000);
+		System.out.println(tname);
+		d.findElement(By.linkText("Link Test")).click();
+		Thread.sleep(3000);
+  }
+  @BeforeMethod
+  public void beforeMethod() throws InterruptedException {
+	// Create a new instance of the Firefox driver
+	   d=new FirefoxDriver();
+		Thread.sleep(3000);
+		d.get("http://toolsqa.wpengine.com/automation-practice-form/");
+  }
+
+  @AfterMethod
+  public void afterMethod() {
+	  // Close the driver
+	  
+     d.quit();
+ 
+  }
+
+}
