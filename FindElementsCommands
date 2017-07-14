@@ -1,0 +1,32 @@
+package com.iitjobs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class FindElementsCommands {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		Thread.sleep(3000);
+		d.get("http://toolsqa.wpengine.com/automation-practice-form/");
+		Thread.sleep(3000);
+		d.findElement(By.name("firstname")).sendKeys("satish");
+		Thread.sleep(3000);
+		d.findElement(By.name("lastname")).sendKeys("ravipati");
+		Thread.sleep(3000);
+		d.findElement(By.id("submit")).click();
+		Thread.sleep(3000);
+		d.findElement(By.partialLinkText("Partial")).click();;
+		Thread.sleep(3000);
+		String tname=d.findElement(By.tagName("button")).toString();
+		Thread.sleep(3000);
+		System.out.println(tname);
+		d.findElement(By.linkText("Link Test")).click();
+		Thread.sleep(3000);
+		d.close();
+
+	}
+
+}
