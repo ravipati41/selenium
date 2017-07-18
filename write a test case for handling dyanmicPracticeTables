@@ -1,0 +1,39 @@
+package com.iitjobs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class PracticeTables {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		d.get("http://toolsqa.wpengine.com/automation-practice-table/");
+		Thread.sleep(3000);
+		String s=d.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[1]/td[2]")).getText();
+		System.out.println(s);
+		d.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[1]/td[6]/a")).click();
+		Thread.sleep(3000);
+		String s1=d.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[2]/th[1]")).getText();
+		System.out.println(s1);
+		String s2="Clock Tower Hotel";
+		Thread.sleep(3000);
+		if(s2.equalsIgnoreCase(s1)){
+			
+			for(int i=1;i<=5;i++){
+				String s3=d.findElement(By.xpath(".//*[@id='content']/table/tbody/tr[2]/td["+i+"]")).getText();
+				System.out.println(s3);
+			}
+			
+		}
+		Thread.sleep(3000);
+		
+		
+		//*[@id='content']/table/tbody/tr[1]/td[2]/
+		//*[@id='content']/table/tbody/tr[1]/td[6]/a
+		//*[@id='content']/table/tbody/tr[1]/td[6]/a
+
+	}
+
+}
