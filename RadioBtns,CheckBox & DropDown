@@ -1,0 +1,74 @@
+package com.iitjobs;
+
+import java.util.List;
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class CheckBoxRadioBtn {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		
+		d.get("http://toolsqa.wpengine.com/automation-practice-form/");
+		Thread.sleep(3000);
+		
+		List<WebElement> radiobtn_sex=d.findElements(By.name("sex"));	
+		
+		boolean bvalue=false;
+		bvalue=radiobtn_sex.get(0).isSelected();
+		if(bvalue==true){
+			radiobtn_sex.get(1).click();
+		}
+		else{
+			radiobtn_sex.get(0).click();
+		}
+		WebElement radiobtn_exp=d.findElement(By.id("exp-2"));
+		Thread.sleep(3000);
+radiobtn_exp.click();
+List<WebElement> chk_prof=d.findElements(By.name("profession"));
+int size=chk_prof.size();
+for(int i=0;i<size;i++){
+	
+	String value=chk_prof.get(i).getAttribute("value");
+	if(value.equalsIgnoreCase("Automation Tester")){
+		Thread.sleep(3000);
+		chk_prof.get(i).click();
+		break;
+	}
+}
+Thread.sleep(3000);
+d.findElement(By.cssSelector("input[value='Selenium IDE']")).click();
+Thread.sleep(4000);
+
+Select s=new Select(d.findElement(By.id("continents")));
+s.selectByIndex(1);
+Thread.sleep(3000);
+s.selectByVisibleText("Africa");
+Thread.sleep(3000);
+List<WebElement> options=s.getOptions();
+int size1=options.size();
+for(int i=0;i<size1;i++){
+	Thread.sleep(3000);
+	String value1=options.get(i).getText();
+	Thread.sleep(3000);
+	System.out.println(value1);
+	if(value1.equals("South America")){
+		s.selectByIndex(i);
+	break;
+	}
+	Thread.sleep(3000);
+}
+
+		
+		d.close();
+		
+
+	}
+
+}
