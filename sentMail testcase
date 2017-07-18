@@ -1,0 +1,67 @@
+package com.iitjobs;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class SentMail {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		
+		WebDriver d=new FirefoxDriver();
+		d.get("http://www.gmail.com");
+		Thread.sleep(3000);
+		
+d.findElement(By.id("identifierId")).sendKeys("satishbabu.ravipati");
+Thread.sleep(3000);
+//d.findElement(By.className("RveJvd snByac")).click();
+
+d.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div[2]/div[1]/content/span")).click();
+Thread.sleep(3000);
+
+//d.findElement(By.className("whsOnd zHQkBf")).sendKeys("ravipati1990");
+//Thread.sleep(3000);
+d.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div/div[1]/div[1]/div/div[1]/div/div[1]/input")).sendKeys("ravipati1990");
+Thread.sleep(3000);
+d.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div/div[2]/div[1]/content/span")).click();
+Thread.sleep(3000);
+
+d.findElement(By.xpath("/html/body/div[7]/div[3]/div/div[2]/div[1]/div[1]/div[1]/div[2]/div/div/div/div[1]/div/div")).click();
+//d.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div[2]/form/div[2]/div/div/div[2]/div[1]/div[2]"))
+
+Thread.sleep(3000);
+//String mainPage = d.getWindowHandle();
+
+//Alert alt = d.switchTo().alert(); // to move control to alert popup
+
+//alt.accept();
+
+
+//d.findElement(By.xpath("/html/body/div[16]/div/div/div/div[1]/div[3]/div[1]/div[1]/div/div/div/div[3]/div/div/div[4]/table/tbody/tr/td[2]/form/div[2]/div[1]")).sendKeys("shivashankar.tummala@gmail.com");
+//d.findElement(By.xpath("//*[@id=':ni']")).sendKeys("satishbabu.ravipati@gmail.com");
+//d.findElement(By.xpath("//*[@id=':ng']")).click();
+
+d.findElement(By.xpath("//*[@id=':ox']")).sendKeys("rsbchowdary@gmail.com");
+//*[@id=":ox"]
+Thread.sleep(3000);
+//*[@id=":og"]
+////*[@id=":ng"]
+//d.findElement(By.id(":ov")).sendKeys("satishbabu.ravipati@gmail.com");
+//Thread.sleep(3000);
+d.findElement(By.xpath("//*[@id=':og']")).sendKeys("sent mail test case was done");
+Thread.sleep(3000);
+//*[@id=":o6"]
+d.findElement(By.xpath("//*[@id=':o6']")).click();
+Thread.sleep(6000);
+
+//alt.dismiss(); // to click on cancel.
+
+//Then move the control back to main web page-
+
+//d.switchTo().window(mainPage); 
+d.close();
+	}
+
+}
