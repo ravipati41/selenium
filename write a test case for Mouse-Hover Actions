@@ -1,0 +1,30 @@
+package com.iitjobs;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class MouseHover {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		d.get("http://toolsqa.com/selenium-webdriver/mouse-hover-action/");
+		Thread.sleep(3000);
+		WebElement element=d.findElement(By.linkText("Tools"));
+		Actions act=new Actions(d);
+		Thread.sleep(3000);
+		act.moveToElement(element).build().perform();
+		Thread.sleep(3000);
+		WebElement e=d.findElement(By.linkText("Mobile Automation"));
+		Thread.sleep(3000);
+		act.moveToElement(e).build().perform();
+		Thread.sleep(3000);
+		d.findElement(By.linkText("Appium Tutorial")).click();
+		d.close();
+
+	}
+
+}
