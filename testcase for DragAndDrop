@@ -1,0 +1,32 @@
+package com.iitjobs;
+
+
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Action;
+import org.openqa.selenium.interactions.Actions;
+
+public class DragAndDrop {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver d=new FirefoxDriver();
+		d.get("http://www.dhtmlx.com/docs/products/dhtmlxTree/index.shtml");
+		Thread.sleep(3000);
+		WebElement from=d.findElement(By.xpath(".//*[@id='treebox1']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[4]/span"));
+		WebElement to=d.findElement(By.xpath(".//*[@id='treebox2']/div/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[1]/td[4]/span"));
+	Actions act=new Actions(d);
+	Thread.sleep(3000);
+ Action dragAndDrop=(Action)act.clickAndHold(from).moveToElement(to).release().build();
+ Thread.sleep(3000);
+   dragAndDrop.perform();
+   Thread.sleep(3000);
+   Thread.sleep(3000);
+		//d.close();
+
+	}
+
+}
